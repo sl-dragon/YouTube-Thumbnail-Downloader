@@ -1,7 +1,6 @@
 # Author: Fayas (https://github.com/FayasNoushad) (@FayasNoushad)
 
 import os
-import ytthumb
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -12,11 +11,6 @@ I am a simple youtube thumbnail downloader telegram bot.
 
 - Send a youtube video link or video ID.
 - I will send the thumbnail.
-- You can also send youtube video link or video id with quality. ( like :- `rokGy0huYEA | sd`
-  - sd - Standard Quality
-  - mq - Medium Quality
-  - hq - High Quality
-  - maxres - Maximum Resolution
 
 Made by @FayasNoushad
 """
@@ -26,6 +20,7 @@ BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/FayasNoushad')
         ]]
     )
+REGEX = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
 
 Bot = Client(
     "YouTube-Thumbnail-Downloader",
@@ -52,17 +47,14 @@ async def send_thumbnail(bot, update):
         disable_web_page_preview=True,
         quote=True
     )
+    if ("youtube.com" in update.text) and ("/" in update.text) and ("=" in update.text):
+        id = update.text.split("=")[-1]
+    elif ("youtu.be" in update.text) and ("/" in update.text):
+        id = update.text.split("/")[-1]
+    else:
+        id = update.text
     try:
-        if " | " in update.text:
-            video = update.text.split(" | ", -1)[0]
-            quality = update.text.split(" | ", -1)[1]
-        else:
-            video = update.text
-            quality = "sd"
-        thumbnail = ytthumb.thumbnail(
-            video=video,
-            quality=quality
-        )
+        thumbnail = "https://img.youtube.com/vi/" + id + "/sddefault.jpg"
         await update.reply_photo(
             photo=thumbnail,
             reply_markup=BUTTONS,
