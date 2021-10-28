@@ -12,12 +12,12 @@ I am a simple youtube thumbnail downloader telegram bot.
 - Send a youtube video link or video ID.
 - I will send the thumbnail.
 
-Made by @FayasNoushad
+Made by @Mo_Tech_YT
 """
 
 BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/FayasNoushad')
+        InlineKeyboardButton('📍 DEPLOY NOW 📍, url='https://youtu.be/DdpnzxweC2o')
         ]]
     )
 REGEX = r"^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
