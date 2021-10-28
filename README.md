@@ -18,7 +18,12 @@ python3 main.py
 ```
 
 ---
+## How To Deploy
 
+<a href="https://youtu.be/DdpnzxweC2o"><img src="https://img.shields.io/badge/How%20To%20Deploy-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/DdpnzxweC2o"><img src="https://img.shields.io/youtube/views/DdpnzxweC2o?style=social">
+
+---
 ## Variables
 
 - `API_HASH` Your API Hash from my.telegram.org
