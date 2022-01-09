@@ -12,7 +12,7 @@ I am a simple youtube thumbnail downloader telegram bot.
 - Send a youtube video link or video ID.
 - I will send the thumbnail.
 
-Made by @Mo_Tech_YT
+Edit by yosh
 """
 
 BUTTONS = InlineKeyboardMarkup(
